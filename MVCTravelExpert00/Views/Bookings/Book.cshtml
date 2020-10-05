@@ -1,0 +1,129 @@
+﻿@model MVCTravelExpert00.Models.BookPkgModel
+
+@{
+    ViewBag.Title = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Book</h2>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@ViewBag.Message
+    </div>
+}
+<div>
+    <h4>BookPkgModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.imgsrc)*@
+            <img src=@Href(Model.imgsrc) class="img-responsive" width="800" height="600">
+        </dt>
+
+        <dd>
+            @* @Html.DisplayFor(model => model.imgsrc)*@
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PkgId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PkgId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PkgName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PkgName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelerCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelerCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Triptype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Triptype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassName)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.FeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeeName)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.BookingId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingId)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Confirm", "Confirm", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to Package List", "Index")
+</p>

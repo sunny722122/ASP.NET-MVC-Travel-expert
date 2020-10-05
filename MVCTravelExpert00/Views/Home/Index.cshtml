@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MVCTravelExpert00.Models.PkgHomeDisplayModel>
+@{
+    ViewBag.Title = "Travel Expert";
+}
+
+<div class="container">
+    <div class="row">
+        
+            <img src="~/Content/Img/logo/Logo.png" alt="Travel Expert, Your jurney starts here!" class="img-rounded img-responsive" style="float:left;height:10%;width:60%" />
+       
+            @if (DateTime.Now.Hour < 12)
+            {
+                <img src="~/Content/Img/greeting/morning.jpeg" alt="Good Morning!" class="img-rounded img-responsive" style="float:right;height:15%;width:20%" />
+            }
+            else if (DateTime.Now.Hour < 18)
+            {
+                <img src="~/Content/Img/greeting/afternoon.jpeg" alt="Good Afternoon!" style="resize:both;" />
+            }
+            else
+            {
+                <img src="~/Content/Img/greeting/evening.jpeg" alt="Good Evening!" style="resize:both;" />
+            }
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div id="imageCarousel" class="carousel slide" data-interval="2000"
+                 data-ride="carousel" data-pause="hover" data-wrap="true">
+
+                <ol class="carousel-indicators">
+                    @*<li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#imageCarousel" data-slide-to="1"></li>
+                    <li data-target="#imageCarousel" data-slide-to="2"></li>
+                    <li data-target="#imageCarousel" data-slide-to="3"></li>*@
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+                        if (i == 0)
+                        {
+                            <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                        }
+
+                        else
+                        {
+                            <li data-target="#imageCarousel" data-slide-to=@i.ToString()></li>
+                        }
+
+                    }
+                </ol>
+
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        <img src="~/Content/Img/product/pkg1.jpeg" class="img-responsive" width="800" height="600">
+
+                    </div>
+                    @*<div class="item">
+                        <img src="~/Content/Img/product/pkg2.jpeg" class="img-responsive" width="800" height="600">
+
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/Img/product/pkg3.jpeg" class="img-responsive" width="800" height="600">
+
+                    </div>
+                    <div class="item">
+                        <img src="~/Content/Img/product/pkg4.jpeg" class="img-responsive" width="800" height="600">
+
+                    </div>*@
+                    @foreach (var item in Model)
+                    {
+                <div class="item">
+                    <div class="text-center">
+                        <h3>
+                            @Html.DisplayFor(modelItem => item.pkgName)
+                        </h3>
+                    </div>
+                    <br />
+                    <img src=@Href(@item.imgsrc) class="img-responsive" width="800" height="600">
+
+                </div>
+                    }
+                </div>
+
+                <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                    <span class="glyphicon glyphicon-hand-left"></span>
+                </a>
+                <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                    <span class="glyphicon glyphicon-hand-right"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

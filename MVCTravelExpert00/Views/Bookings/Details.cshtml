@@ -1,0 +1,67 @@
+﻿@model MVCTravelExpert00.Models.Booking
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelerCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelerCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CustFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CustFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Package.PkgName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Package.PkgName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TripType.TTName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TripType.TTName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

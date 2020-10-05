@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Contactus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contact us</h2>
+
+<br />
+<br />
+@if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+{
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">
+            <strong>Success!</strong>@ViewBag.Message
+        </div>
+
+    }
+}
+else
+{
+    if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error!</strong>@ViewBag.Error
+        </div>
+    }
+    <form method="post" action="Contactus">
+        <div class="container">
+            <span class="form-control-static"> Receiver: </span>
+            <input class="form-control" type="text" name="receiver" />
+            <br />
+            <span class="form-control-static"> Subject: </span>
+            <input class="form-control" type="text" name="subject" /> <br />
+            <span class="form-control-static"> Message: </span>
+            <input class="form-control" type="text" name="message" /> <br />
+            <input class="btn btn-primary" type="submit" value="Send" />
+        </div>
+    </form>
+}

@@ -1,0 +1,124 @@
+﻿@model IEnumerable<MVCTravelExpert00.Models.BookPkgModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<div style=" overflow: auto;">
+    <table class="table ">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.PkgName)*@
+
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.StartDate)*@
+                Package
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.EndDate)*@
+                Trip Plan
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Description)*@
+                Preference
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.TravelerCount)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Triptype)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.ClassName)</th>
+            <th>@Html.DisplayNameFor(model => model.RegionName)</th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            @*using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                   
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                    
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                               @* @Html.EditorFor(modelItem => item.PkgId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })*@
+                                @Html.HiddenFor(modelItem => item.PkgId)
+                                <img src=@Href(@item.imgsrc) class="img-responsive" width="800" height="600">
+                            </div>
+                           @* @Html.HiddenFor(modelItem => item.PkgId)*@
+
+                           
+                           @* <img src=@Href(@item.imgsrc) class="img-responsive" width="800" height="600">*@
+                            
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.PkgName)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.PkgName)
+                            <br />
+                            @Html.DisplayNameFor(model => model.Description)
+                            <br />
+                            @Html.DisplayFor(modelItem => item.Description)
+
+                            @Html.DisplayFor(modelItem => item.PkgBasePrice)
+                            @*@Html.DisplayFor(modelItem => item.StartDate)*@
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.StartDate)
+                            <br />
+                            @*<input type="date" id="meeting-time"
+               name="meeting-time" value=@item.StartDate
+               step="0.1">
+        <input type="datetime-local" id=" StartDate"
+               name="StartDate" value="2018-06-12T19:30"
+                min="2008-06-07T00:00" max="2038-06-14T00:00"/>*@
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                            <br />
+                            @Html.DisplayNameFor(model => model.EndDate)
+                            <br />
+                            @*<input type="datetime-local" value=(@item.EndDate) />*@
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                            @*@Html.DisplayFor(modelItem => item.Package.PkgName)*@
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.TravelerCount)
+                            <br />
+                            @Html.TextBoxFor(modelItem => item.TravelerCount)
+                            <br />
+                            @Html.DisplayNameFor(model => model.Triptype)
+                            <br />
+                            @Html.DropDownList(item.Triptype, ViewBag.TripType as SelectList, string.Empty)
+                            <br />
+                            @Html.DisplayNameFor(model => model.ClassName)
+                            <br />
+                            @Html.DropDownList("Class", ViewBag.ClassName as SelectList, string.Empty)
+                            <br />
+                            @Html.DisplayNameFor(model => model.RegionName)
+                            <br />
+                            @Html.DropDownList("Region", ViewBag.RegionName as SelectList, string.Empty)
+                        </td>
+
+                        <td>
+                          @* @Html.ActionLink("Book", "Bookings",new {pkgId= item.PkgId})*@
+                            <input type="button" class="btn btn-info" value="Book" onclick="location.href='@Url.Action("Book", "Bookings", new { PkgId = item.PkgId,
+                                                                                                          TravelerCount=item.TravelerCount,Triptype=item.Triptype,
+                                                                                                          ClassName =item.ClassName,RegionName=item.RegionName})'" />
+                            @*<input type="submit" class="btn btn-info" value="Book" />*@
+                        </td>
+                    </tr>
+        }
+
+            </table>
+</div>

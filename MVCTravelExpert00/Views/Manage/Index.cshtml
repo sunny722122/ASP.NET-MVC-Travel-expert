@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MVCTravelExpert00.Models.ManageViewModels>
+
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+
+
+    <table class="table">
+        <tr>
+            <td>
+                @Html.ActionLink("Manage Profile", "ManageProfile", new { /* id=item.PrimaryKey */ })
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Change your password", "ResetPassword", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("MyOrderHistory", "OrderHistory", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    </table>
+

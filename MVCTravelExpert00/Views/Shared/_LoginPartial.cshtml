@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+@if (HttpContext.Current.Session["CustomerId"]!=null)
+{
+    using (Html.BeginForm("Logout", "Manage", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + HttpContext.Current.Session["CustomerName"] + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Registration", "Customer", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+
